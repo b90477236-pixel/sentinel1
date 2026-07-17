@@ -18,7 +18,7 @@
                 "description": "",
                 "severity": "Medium",
                 "enabled": true,
-                "query": "testlab_CL\r\n| where Result_s in (\"Success\", \"Failure\")\n| summarize Failures = countif(Result_s == \"Failure\"), Successes = countif(Result_s == \"Success\") by SourceIP_s, UserName_s\n| where Failures >= 3 and Successes >= 1\n| sort by Failures desc",
+                "query": "testlab_CL\r\n| where Result in (\"Success\", \"Failure\")\n| summarize Failures = countif(Result == \"Failure\"), Successes = countif(Result == \"Success\") by SourceIP, UserName\n| where Failures >= 3 and Successes >= 1\n| sort by Failures desc",
                 "queryFrequency": "PT5M",
                 "queryPeriod": "PT2H",
                 "triggerOperator": "GreaterThan",
